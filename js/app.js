@@ -51,7 +51,6 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-  console.log(post);
   const image = post.image;
   const div = document.createElement("article");
   div.classList.add("post");
@@ -63,7 +62,7 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="${`https://avatars.githubusercontent.com/u/53802153?v=4`}" alt="User Picture" />
+                    <img src="${post.userImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
@@ -144,6 +143,7 @@ const showPosts = (posts) => {
 
 const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
+
   document.getElementById("liked").innerHTML = ''
   likedPosts.forEach((post) => {
     const div = createPost(post);
